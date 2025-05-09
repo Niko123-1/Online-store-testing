@@ -82,6 +82,6 @@ class Cart:
         """
         for prod in self.products:
             if self.products[prod]>prod.quantity:
-                raise ValueError
+                raise ValueError(f'Недостаточно {prod.name}')
             else:
                 prod.buy(self.products[prod])
