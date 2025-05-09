@@ -14,7 +14,7 @@ class Product:
         self.quantity = quantity
 
     def check_quantity(self, quantity) -> bool:
-        """TODO Вернет True если количество продукта больше или равно запрашиваемому и False в обратном случае"""
+        """Вернет True если количество продукта больше или равно запрашиваемому и False в обратном случае"""
 
         return self.quantity >= quantity
 
@@ -30,9 +30,6 @@ class Product:
 
         return hash(self.name + self.description)
 
-    def __repr__(self):
-        return f"Product(name='{self.name}', price={self.price})"
-
 
 class Cart:
     """Класс корзины. В нем хранятся продукты, которые пользователь хочет купить."""
@@ -44,16 +41,12 @@ class Cart:
         # По-умолчанию корзина пустая
         self.products = {}
 
-    def show_cart(self):
-
-        return self.products
-
     def add_product(self, product: Product, buy_count=1):
         """
         Метод добавления продукта в корзину.
         Если продукт уже есть в корзине, то увеличиваем количество
         """
-        if product in self.products:  # Python автоматически использует __hash__ и __eq__
+        if product in self.products:
             self.products[product] += buy_count
         else:
             self.products[product] = buy_count
